@@ -29,6 +29,14 @@ log "ENABLE established and related connections"
 sudo iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 log ""
 log ""
+log "ALLOW MY SUBNET !!!"
+sudo iptables -A INPUT -s 87.127.171.48/29 -j ACCEPT
+log ""
+log ""
+log "ENABLE incoming ICMP to all"
+sudo iptables -I INPUT -p icmp -j ACCEPT
+log ""
+log ""
 log "BLOCK ALL"
 sudo iptables -P OUTPUT ACCEPT
 sudo iptables -P INPUT DROP

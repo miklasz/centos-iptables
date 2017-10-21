@@ -6,11 +6,15 @@ function log {
 log ""
 log ""
 log "Enable http:"
-iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 log ""
 log ""
 log "ENABLE https:"
-iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+sudo iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+log ""
+log ""
+log "SAVE iptables to /etc/sysconfig/iptables"
+sudo iptables-save
 log ""
 log ""
 log "show all the rules"
